@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 20, 2024 at 09:52 AM
+-- Generation Time: Oct 23, 2024 at 09:31 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,8 +42,27 @@ INSERT INTO `kategori` (`idkategori`, `namakategori`, `created_at`, `updated_at`
 (4, 'Pria', '2023-05-19 14:31:46', '2024-06-28 15:14:42'),
 (5, 'Wanita', '2023-05-19 14:31:50', '2024-06-28 15:14:46'),
 (6, 'Anak - Anak', '2023-05-19 14:31:53', '2024-06-28 15:14:51'),
-(7, 'Aksesoris', '2023-05-21 06:39:20', '2023-05-21 06:39:20'),
-(10, 'Unisex', '2024-06-28 15:30:27', '2024-06-28 15:30:27');
+(7, 'Aksesoris', '2023-05-21 06:39:20', '2023-05-21 06:39:20');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kupon`
+--
+
+CREATE TABLE `kupon` (
+  `id_kupon` int(11) NOT NULL,
+  `code` varchar(225) NOT NULL,
+  `valid_until` date NOT NULL,
+  `diskon_persen` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `kupon`
+--
+
+INSERT INTO `kupon` (`id_kupon`, `code`, `valid_until`, `diskon_persen`) VALUES
+(2, 'spt1212', '2024-10-23', 10);
 
 -- --------------------------------------------------------
 
@@ -286,6 +305,12 @@ ALTER TABLE `kategori`
   ADD PRIMARY KEY (`idkategori`);
 
 --
+-- Indexes for table `kupon`
+--
+ALTER TABLE `kupon`
+  ADD PRIMARY KEY (`id_kupon`);
+
+--
 -- Indexes for table `messages`
 --
 ALTER TABLE `messages`
@@ -346,6 +371,12 @@ ALTER TABLE `ulasan`
 --
 ALTER TABLE `kategori`
   MODIFY `idkategori` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `kupon`
+--
+ALTER TABLE `kupon`
+  MODIFY `id_kupon` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `messages`
